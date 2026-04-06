@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Madina Qalandarova — Portfolio</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+        <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- NAV -->
+    <nav>
+      <div class="nav-logo">MQ.</div>
+      <ul class="nav-links">
+        <li><a href="#about" data-i18n="nav_about">Haqimda</a></li>
+        <li><a href="#skills" data-i18n="nav_skills">Ko'nikmalar</a></li>
+        <li><a href="#certs" data-i18n="nav_certs">Sertifikatlar</a></li>
+        <li><a href="#education" data-i18n="nav_education">Ta'lim</a></li>
+        <li><a href="#contact" data-i18n="nav_contact">Aloqa</a></li>
+      </ul>
+      <div style="display: flex; gap: 16px; align-items: center">
+        <select
+          id="langMenu"
+          style="
+            background: transparent;
+            color: var(--text-strong);
+            border: 1px solid var(--border);
+            padding: 4px 8px;
+            border-radius: 6px;
+            cursor: pointer;
+            outline: none;
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+          "
+        >
+          <option
+            value="uz"
+            style="background: var(--surface); color: var(--text)"
+          >
+            UZ
+          </option>
+          <option
+            value="ru"
+            style="background: var(--surface); color: var(--text)"
+          >
+            RU
+          </option>
+          <option
+            value="en"
+            style="background: var(--surface); color: var(--text)"
+          >
+            EN
+          </option>
+        </select>
+        <button
+          id="themeBtn"
+          style="
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+          "
+        >
+          🌞
+        </button>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-orb orb1"></div>
+      <div class="hero-orb orb2"></div>
+      <div class="hero-orb orb3"></div>
+      <div class="hero-inner">
+        <div class="hero-content">
+          <div class="hero-tag">
+            <span>⚡</span>
+            <span data-i18n="hero_tag">Frontend Dev & Cybersecurity</span>
+          </div>
+          <h1 class="hero-name">
+            <span class="line1">Qalandarova</span>
+            <span class="line2">Madina</span>
+          </h1>
+          <p class="hero-desc" data-i18n="hero_desc">
+            IT sohasidagi yosh mutaxassis — zamonaviy interfeys yarataman va
+            raqamli xavfsizlikni ta'minlayman.
+          </p>
+          <div class="hero-tags">
+            <span class="tag-pill" data-i18n="tag_html">HTML / CSS</span>
+            <span class="tag-pill" data-i18n="tag_js">JavaScript</span>
+            <span class="tag-pill" data-i18n="tag_cyber">Cybersecurity</span>
+          </div>
+          <div class="hero-actions">
+            <a href="#contact" class="btn-primary"
+              ><span data-i18n="btn_contact">✉ Bog'lanish</span></a
+            >
+            <a href="#certs" class="btn-secondary" data-i18n="btn_certs"
+              >📜 Sertifikatlar</a
+            >
+          </div>
+        </div>
+        <div class="hero-code-badge" aria-hidden="true">
+          <div class="code-icon">&lt;/&gt;</div>
+        </div>
+      </div>
+      <div class="hero-scroll">
+        <div class="scroll-line"></div>
+        <span data-i18n="hero_scroll">Scroll</span>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <div class="stats-bar reveal">
+      <div class="stat-item">
+        <div class="stat-num" data-target="6">0</div>
+        <div class="stat-label" data-i18n="stat_cert">Sertifikat</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num" data-target="2">0</div>
+        <div class="stat-label" data-i18n="stat_dir">Yo'nalish</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num" data-target="1">0</div>
+        <div class="stat-label" data-i18n="stat_proj">Loyihalar</div>
+      </div>
+    </div>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="section-label" data-i18n="sec_intro">Tanishuv</div>
+      <h2 class="section-title reveal" data-i18n-html="about_title">
+        Men haqimda <em>biroz</em>
+      </h2>
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <p data-i18n-html="about_p1">
+            Salom! Men <strong>Qalandarova Madina</strong> — IT sohasida
+            <strong>Frontend Development</strong> va
+            <strong>Kiberxavfsizlik</strong> yo'nalishlarida o'qiyotgan yosh
+            mutaxassis.
+          </p>
+          <p data-i18n-html="about_p2">
+            Coursera platformasida <strong>4–5 ta sertifikat</strong> olgaman,
+            ular Frontend va Backend yo'nalishlarini qamrab oladi.
+          </p>
+          <p data-i18n="about_p3">
+            Mening maqsadim — chiroyli, xavfsiz va samarali veb-ilovalar
+            yaratish. Har bir loyihaga butun energiyamni sarflayman.
+          </p>
+        </div>
+        <div class="about-card reveal">
+          <div class="about-avatar">MQ</div>
+          <h3>Qalandarova Madina</h3>
+          <div class="role" data-i18n="about_role">
+            Frontend Dev + Cybersecurity
+          </div>
+          <ul class="about-info-list">
+            <li>
+              <span class="icon">🎓</span>
+              <span data-i18n="about_li1">IT sohasida talaba</span>
+            </li>
+            <li>
+              <span class="icon">📍</span>
+              <span data-i18n="about_li2">O'zbekiston</span>
+            </li>
+            <li>
+              <span class="icon">🌐</span>
+              <span data-i18n="about_li3">Frontend Developer</span>
+            </li>
+            <li>
+              <span class="icon">🔐</span>
+              <span data-i18n="about_li4">Kiberxavfsizlik mutaxassisi</span>
+            </li>
+            <li>
+              <span class="icon">📜</span>
+              <span data-i18n="about_li5">Coursera · 4–5 sertifikat</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="skills-section">
+      <div class="section-label" data-i18n="skills_label">Texnologiyalar</div>
+      <h2 class="section-title reveal" data-i18n-html="skills_title">
+        Ko'nikmalarim <em>&</em><br />texnologiyalar
+      </h2>
+      <div class="skills-grid">
+        <div class="skill-card reveal">
+          <div class="skill-icon">🎨</div>
+          <div class="skill-name" data-i18n="skill_html_name">HTML & CSS</div>
+          <div class="skill-desc" data-i18n="skill_html_desc">
+            Zamonaviy, responsive va chiroyli interfeys yaratish. Flexbox, Grid,
+            animatsiyalar.
+          </div>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar" style="--w: 0.9"></div>
+          </div>
+          <div class="skill-level">90%</div>
+        </div>
+        <div class="skill-card reveal">
+          <div class="skill-icon">⚡</div>
+          <div class="skill-name" data-i18n="skill_js_name">JavaScript</div>
+          <div class="skill-desc" data-i18n="skill_js_desc">
+            DOM manipulyatsiya, event handling, async/await, API integratsiya.
+          </div>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar" style="--w: 0.75"></div>
+          </div>
+          <div class="skill-level">75%</div>
+        </div>
+        <div class="skill-card reveal">
+          <div class="skill-icon">🔐</div>
+          <div class="skill-name" data-i18n="skill_sec_name">
+            Kiberxavfsizlik
+          </div>
+          <div class="skill-desc" data-i18n="skill_sec_desc">
+            Penetration testing, network security, zaifliklarni aniqlash va
+            himoya qilish.
+          </div>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar" style="--w: 0.7"></div>
+          </div>
+          <div class="skill-level">70%</div>
+        </div>
+        <div class="skill-card reveal">
+          <div class="skill-icon">🖥️</div>
+          <div class="skill-name" data-i18n="skill_be_name">
+            Backend Asoslari
+          </div>
+          <div class="skill-desc" data-i18n="skill_be_desc">
+            Server tomonidagi dasturlash, API yaratish, ma'lumotlar bazasi bilan
+            ishlash.
+          </div>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar" style="--w: 0.65"></div>
+          </div>
+          <div class="skill-level">65%</div>
+        </div>
+        <div class="skill-card reveal">
+          <div class="skill-icon">🛡️</div>
+          <div class="skill-name" data-i18n="skill_pen_name">PEN Testing</div>
+          <div class="skill-desc" data-i18n="skill_pen_desc">
+            Ethical hacking, vulnerability assessment, security auditing.
+          </div>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar" style="--w: 0.68"></div>
+          </div>
+          <div class="skill-level">68%</div>
+        </div>
+        <div class="skill-card reveal">
+          <div class="skill-icon">🌐</div>
+          <div class="skill-name" data-i18n="skill_git_name">Git & Tools</div>
+          <div class="skill-desc" data-i18n="skill_git_desc">
+            Version control, GitHub, VS Code, development workflow va hamkorlik.
+          </div>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar" style="--w: 0.8"></div>
+          </div>
+          <div class="skill-level">80%</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATES -->
+    <section id="certs">
+      <div class="section-label" data-i18n="certs_label">Yutuqlar</div>
+      <h2 class="section-title reveal" data-i18n-html="certs_title">
+        Sertifikatlarim <em>&</em><br />yutuqlarim
+      </h2>
+      <div class="certs-grid">
+        <a
+          href="https://coursera.org/share/568db34194c9e59d3f9b656fa72e5603"
+          target="_blank"
+          class="cert-card reveal"
+          style="text-decoration: none; color: inherit"
+        >
+          <div class="cert-badge purple">🤖</div>
+          <div class="cert-info">
+            <div class="cert-title">Build AI Apps with ChatGPT</div>
+            <div class="cert-issuer">COURSERA</div>
+          </div>
+          <span class="cert-status done" data-i18n="cert_done">✓ Olindi</span>
+        </a>
+        <a
+          href="https://coursera.org/share/67780344e5be68663fb6af27494c2b43"
+          target="_blank"
+          class="cert-card reveal"
+          style="text-decoration: none; color: inherit"
+        >
+          <div class="cert-badge cyan">☁️</div>
+          <div class="cert-info">
+            <div class="cert-title">Intro to Generative AI</div>
+            <div class="cert-issuer">COURSERA</div>
+          </div>
+          <span class="cert-status done" data-i18n="cert_done">✓ Olindi</span>
+        </a>
+        <div class="cert-card reveal">
+          <div class="cert-badge pink">🎨</div>
+          <div class="cert-info">
+            <div class="cert-title">Responsive Web Design</div>
+            <div class="cert-issuer">COURSERA</div>
+          </div>
+          <span class="cert-status done" data-i18n="cert_done">✓ Olindi</span>
+        </div>
+        <div class="cert-card reveal">
+          <div class="cert-badge green">⚡</div>
+          <div class="cert-info">
+            <div class="cert-title">JavaScript & Web APIs</div>
+            <div class="cert-issuer">COURSERA</div>
+          </div>
+          <span class="cert-status done" data-i18n="cert_done">✓ Olindi</span>
+        </div>
+        <div class="cert-card reveal">
+          <div class="cert-badge purple">🖥️</div>
+          <div class="cert-info">
+            <div class="cert-title">Full Stack Foundations</div>
+            <div class="cert-issuer">COURSERA</div>
+          </div>
+          <span class="cert-status done" data-i18n="cert_done">✓ Olindi</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education" class="education-section">
+      <div class="section-label" data-i18n="edu_label">Ta'lim</div>
+      <h2 class="section-title reveal" data-i18n-html="edu_title">
+        Ta'lim <em>va</em> bilimlarim
+      </h2>
+      <div class="education-card reveal">
+        <p data-i18n="edu_p1">
+          Men Xorazm viloyati Yangiariq tumanidagi 3-son umumiy o'rta ta'lim
+          maktabida o'qiyman.
+        </p>
+        <p data-i18n="edu_p2">
+          2 yildan beri Al-Xorazimiy Vorislari loyihasida IT yo'nalishlari
+          bo'yicha bilim olayapman.
+        </p>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <div class="contact-section reveal" id="contact">
+      <div class="section-label" data-i18n="contact_label">Aloqa</div>
+      <h2
+        class="section-title"
+        style="margin-bottom: 40px"
+        data-i18n-html="contact_title"
+      >
+        Men bilan <em>bog'lanish</em> uchun:
+      </h2>
+      <div class="contact-grid">
+        <div class="contact-text">
+          <p data-i18n="contact_intro">
+            Loyiha, hamkorlik yoki savol bo'lsa — bemalol yozing. Har bir
+            xabarga javob beraman.
+          </p>
+          <div class="contact-links">
+            <a href="mailto:qalandrovaam10@gmail.com" class="contact-link">
+              <span class="link-icon">📧</span>
+              qalandrovaam10@gmail.com
+            </a>
+            <a
+              href="https://github.com/madina-qalandarova"
+              target="_blank"
+              class="contact-link"
+            >
+              <span class="link-icon">💻</span>
+              github.com/madina-qalandarova
+            </a>
+            <a
+              href="https://instagram.com/_.qalandarovaaa"
+              target="_blank"
+              class="contact-link"
+            >
+              <span class="link-icon">📸</span>
+              @_.qalandarovaaa (Instagram)
+            </a>
+            <a
+              href="https://t.me/qalandarovaaa_m"
+              target="_blank"
+              class="contact-link"
+            >
+              <span class="link-icon">✈️</span>
+              @qalandarovaaa_m (Telegram)
+            </a>
+          </div>
+        </div>
+        <div>
+          <form class="contact-form" id="contactForm">
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-input"
+                id="senderName"
+                data-i18n-placeholder="form_name_ph"
+                placeholder="Ismingiz"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="email"
+                class="form-input"
+                id="senderEmail"
+                data-i18n-placeholder="form_email_ph"
+                placeholder="Email manzilingiz"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <textarea
+                class="form-input"
+                rows="5"
+                id="msgText"
+                data-i18n-placeholder="form_msg_ph"
+                placeholder="Xabaringiz..."
+                required
+              ></textarea>
+            </div>
+            <div id="formMessage" class="form-message"></div>
+            <button type="submit" class="form-submit" data-i18n="form_submit">
+              Xabar yuborish ✉
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+      <p data-i18n="footer_copy">
+        © 2026 Qalandarova Madina. Barcha huquqlar himoyalangan.
+      </p>
+      <div class="footer-logo">MQ.</div>
+      <p data-i18n="footer_tagline">Frontend Dev + Cybersecurity 🛡️</p>
+    </footer>
+
+        <script src="script.js"></script>
+  </body>
+</html>
