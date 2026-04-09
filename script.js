@@ -321,7 +321,7 @@ const i18n = {
       );
       counters.forEach((c) => counterObserver.observe(c));
 
-      // CONTACT FORM (local simulation + Anthropic API powered)
+      // CONTACT FORM (Telegram Bot API)
       document
         .getElementById("contactForm")
         .addEventListener("submit", async (e) => {
@@ -338,31 +338,37 @@ const i18n = {
           msg.style.display = "none";
 
           try {
-            const res = await fetch("https://api.anthropic.com/v1/messages", {
+            const TELEGRAM_BOT_TOKEN = "8461587456:AAFwVMvF9wbENcVnznYa8nKdZmAYmqNaX-M";
+            const TELEGRAM_CHAT_ID = "5579883280";
+            const telegramText = [
+              "Yangi contact xabari!",
+              "",
+              `Ism: ${name}`,
+              `Email: ${email}`,
+              `Xabar: ${text}`,
+            ].join("\n");
+
+            const res = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
               method: "POST",
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify({
-                model: "claude-sonnet-4-20250514",
-                max_tokens: 300,
-                messages: [
-                  {
-                    role: "user",
-                    content: `Foydalanuvchi portfolio saytiga xabar yubordi. Unga qisqa, samimiy va professional tilda javob yoz (O'zbek tilida, 2-3 jumlada). Foydalanuvchi: ${name}, email: ${email}, xabar: ${text}`,
-                  },
-                ],
+                chat_id: TELEGRAM_CHAT_ID,
+                text: telegramText,
               }),
             });
             const data = await res.json();
-            const reply = data?.content?.[0]?.text || t("form_ok_short");
-            msg.textContent = "✅ " + reply;
-            msg.className = "form-message success";
-            msg.style.display = "block";
-            e.target.reset();
-          } catch (err) {
+            if (!res.ok || !data.ok) {
+              throw new Error(data?.description || "Telegramga yuborishda xatolik.");
+            }
+
             msg.textContent = t("form_ok_full");
             msg.className = "form-message success";
             msg.style.display = "block";
             e.target.reset();
+          } catch (err) {
+            msg.textContent = err.message || "Xabar yuborilmadi. Iltimos qayta urinib ko'ring.";
+            msg.className = "form-message error";
+            msg.style.display = "block";
           }
           btn.textContent = t("form_submit");
           btn.disabled = false;
