@@ -3,6 +3,7 @@
    ========================================================= */
 
 // 1. TIL SOZLAMALARI (i18n Dictionaries)
+// --- COMPLETE I18N DICTIONARY ---
 const i18n = {
   uz: {
     nav_about: "Haqimda",
@@ -12,10 +13,11 @@ const i18n = {
     nav_contact: "Aloqa",
     hero_tag: "Frontend Dev & Cybersecurity",
     hero_hello: "Salom, men",
+    hero_name: "Qalandarova Madina",
     hero_desc:
       "IT sohasidagi yosh mutaxassis — zamonaviy interfeys yarataman va raqamli xavfsizlikni ta'minlayman.",
-    btn_contact: "Bog'lanish",
-    btn_certs: "Sertifikatlar",
+    btn_contact: "Bog'lanish ✉",
+    btn_certs: "Sertifikatlar 📜",
     hero_scroll: "Pastga suring",
     stat_cert: "Sertifikatlar",
     stat_dir: "Asosiy Yo'nalishlar",
@@ -23,9 +25,13 @@ const i18n = {
     sec_intro: "Tanishuv",
     about_title: "Men haqimda",
     sec_certs: "Yutuqlar",
+    certs_title: "Sertifikatlar va Natijalar",
     sec_edu: "Yo'nalish & Bilim",
+    edu_title: "Ta'lim va Rivojlanish",
     contact_label: "Aloqa",
     contact_title: "Men bilan bog'lanish:",
+    contact_subtitle:
+      "Loyiha, hamkorlik yoki savol bo'lsa — bemalol yozing yoki ijtimoiy tarmoqlarim orqali bog'laning:",
     form_name_ph: "Ismingiz",
     form_email_ph: "Emailingiz",
     form_msg_ph: "Xabaringiz...",
@@ -39,10 +45,11 @@ const i18n = {
     nav_contact: "Контакты",
     hero_tag: "Frontend Dev & Cybersecurity",
     hero_hello: "Привет, я",
+    hero_name: "Каландарова Мадина",
     hero_desc:
       "Молодой специалист в IT — создаю современные интерфейсы и обеспечиваю цифровую безопасность.",
-    btn_contact: "Связаться",
-    btn_certs: "Сертификаты",
+    btn_contact: "Связаться ✉",
+    btn_certs: "Сертификаты 📜",
     hero_scroll: "Прокрутите вниз",
     stat_cert: "Сертификатов",
     stat_dir: "Осн. Направления",
@@ -50,9 +57,13 @@ const i18n = {
     sec_intro: "Знакомство",
     about_title: "Обо мне",
     sec_certs: "Достижения",
-    sec_edu: "Образование и Навыки",
+    certs_title: "Сертификаты и Результаты",
+    sec_edu: "Образование",
+    edu_title: "Образование и Развитие",
     contact_label: "Контакты",
     contact_title: "Связаться со мной:",
+    contact_subtitle:
+      "Если есть проект, предложение или вопрос — пишите или свяжитесь через соцсети:",
     form_name_ph: "Ваше имя",
     form_email_ph: "Ваш Email",
     form_msg_ph: "Ваше сообщение...",
@@ -66,10 +77,11 @@ const i18n = {
     nav_contact: "Contact",
     hero_tag: "Frontend Dev & Cybersecurity",
     hero_hello: "Hello, I am",
+    hero_name: "Qalandarova Madina",
     hero_desc:
       "Young IT specialist — creating modern interfaces and ensuring digital security.",
-    btn_contact: "Contact Me",
-    btn_certs: "Certificates",
+    btn_contact: "Contact Me ✉",
+    btn_certs: "Certificates 📜",
     hero_scroll: "Scroll Down",
     stat_cert: "Certificates",
     stat_dir: "Main Directions",
@@ -77,9 +89,13 @@ const i18n = {
     sec_intro: "Introduction",
     about_title: "About Me",
     sec_certs: "Achievements",
-    sec_edu: "Education & Path",
+    certs_title: "Certificates & Achievements",
+    sec_edu: "Education",
+    edu_title: "Education & Growth",
     contact_label: "Contact",
     contact_title: "Get in touch with me:",
+    contact_subtitle:
+      "Have a project, collaboration idea, or question? Feel free to write or contact me via social networks:",
     form_name_ph: "Your Name",
     form_email_ph: "Your Email",
     form_msg_ph: "Your Message...",
