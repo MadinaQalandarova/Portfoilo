@@ -242,26 +242,65 @@ function applyLang(lang) {
     lang === "uz" ? "uz" : lang === "ru" ? "ru" : "en";
   localStorage.setItem("portfolioLang", lang);
 
+  // For each translatable element: prefer target pack, fall back to Uzbek pack,
+  // otherwise leave existing DOM content. This prevents missing translations
+  // from reverting the page to stale values and ensures your Uzbek edits are
+  // used as a fallback.
   document.querySelectorAll("[data-i18n]").forEach((el) => {
     const key = el.getAttribute("data-i18n");
     if (pack[key] !== undefined) el.textContent = pack[key];
+    else if (i18n.uz && i18n.uz[key] !== undefined)
+      el.textContent = i18n.uz[key];
   });
   document.querySelectorAll("[data-i18n-html]").forEach((el) => {
     const key = el.getAttribute("data-i18n-html");
     if (pack[key] !== undefined) el.innerHTML = pack[key];
+    else if (i18n.uz && i18n.uz[key] !== undefined) el.innerHTML = i18n.uz[key];
   });
   document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
     const key = el.getAttribute("data-i18n-placeholder");
     if (pack[key] !== undefined) el.placeholder = pack[key];
+    else if (i18n.uz && i18n.uz[key] !== undefined)
+      el.placeholder = i18n.uz[key];
   });
 }
 
 const langMenu = document.getElementById("langMenu");
 const savedLang = localStorage.getItem("portfolioLang");
 if (savedLang && i18n[savedLang]) langMenu.value = savedLang;
-applyLang(getLang());
 
-langMenu.addEventListener("change", (e) => applyLang(e.target.value));
+// Sync current DOM content into i18n for the active language so HTML edits
+// become the source texts (prevents old pack values from overwriting your edits)
+function syncI18nFromDOM(lang) {
+  const pack = i18n[lang] || i18n.uz;
+  document.querySelectorAll("[data-i18n]").forEach((el) => {
+    const key = el.getAttribute("data-i18n");
+    const current = el.textContent && el.textContent.trim();
+    if (current) pack[key] = current;
+  });
+  document.querySelectorAll("[data-i18n-html]").forEach((el) => {
+    const key = el.getAttribute("data-i18n-html");
+    const current = el.innerHTML && el.innerHTML.trim();
+    if (current) pack[key] = current;
+  });
+  document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
+    const key = el.getAttribute("data-i18n-placeholder");
+    const current = el.placeholder && el.placeholder.trim();
+    if (current) pack[key] = current;
+  });
+}
+
+let currentLang = getLang();
+syncI18nFromDOM(currentLang);
+applyLang(currentLang);
+
+langMenu.addEventListener("change", (e) => {
+  const newLang = e.target.value;
+  // Save any in-DOM edits into the pack for the current language before switching
+  syncI18nFromDOM(currentLang);
+  currentLang = newLang;
+  applyLang(newLang);
+});
 
 const themeBtn = document.getElementById("themeBtn");
 themeBtn.addEventListener("click", () => {
@@ -341,7 +380,8 @@ document.getElementById("contactForm").addEventListener("submit", async (e) => {
       const updatesData = await updatesRes.json();
       if (!updatesRes.ok || !updatesData.ok) {
         throw new Error(
-          updatesData?.description || "getUpdates ishlamadi. Tokenni tekshiring.",
+          updatesData?.description ||
+            "getUpdates ishlamadi. Tokenni tekshiring.",
         );
       }
 
