@@ -3,7 +3,7 @@
 
 Assalomu alaykum! Bu mening shaxsiy portfolio veb-saytimning GitHub repositoriyasi. Saytda mening loyihalarim, ko'nikmalarim va tajribam jamlangan.
 
-👉 **Live Demo:** [portfoilo-mu-three.vercel.app](https://portfoilo-mu-three.vercel.app/)
+👉 **Live Demo:** https://www.qalandarova.uz/
 
 ---
 
