@@ -266,10 +266,10 @@ img {
   transform: translateY(-8.5px) rotate(-45deg);
 }
 
-/* HERO SECTION LAYOUT */
+/* HERO SECTION LAYOUT (TUZaTILGAN QISM) */
 .hero-section {
   min-height: 100vh;
-  padding-top: 110px;
+  padding-top: 100px;
   padding-bottom: 40px;
   display: flex;
   flex-direction: column;
@@ -280,37 +280,38 @@ img {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
-  align-items: center;
-  margin-bottom: 2.5rem;
+  align-items: stretch; /* Elementlar teng balandlikda to'lishi uchun */
+  margin-bottom: 2rem;
 }
 
-.hero-robot-wrapper {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
+.hero-robot-wrapper,
 .hero-robot-card {
+  position: relative;
   width: 100%;
+  height: 100%;
+  min-height: 280px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow-card);
 }
 
 .robot-glow {
   position: absolute;
-  width: 160px;
-  height: 160px;
+  width: 180px;
+  height: 180px;
   background: radial-gradient(
     circle,
-    rgba(59, 130, 246, 0.4) 0%,
+    rgba(59, 130, 246, 0.35) 0%,
     transparent 70%
   );
   filter: blur(25px);
-  z-index: -1;
+  z-index: 0;
 }
 
 .robot-img {
@@ -318,17 +319,19 @@ img {
   max-width: 220px;
   height: auto;
   object-fit: contain;
+  z-index: 1;
   animation: robotFloat 4s ease-in-out infinite;
   filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.35));
 }
 
 .robot-shadow {
-  width: 110px;
+  width: 120px;
   height: 10px;
   background: rgba(0, 0, 0, 0.3);
   border-radius: 50%;
   filter: blur(4px);
   margin-top: 10px;
+  z-index: 1;
 }
 
 @keyframes robotFloat {
@@ -339,6 +342,77 @@ img {
   50% {
     transform: translateY(-14px);
   }
+}
+
+.developer-card,
+.code-card-glass {
+  width: 100%;
+  height: 100%;
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 0.8rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+.dot.red {
+  background: #ff5f56;
+}
+.dot.yellow {
+  background: #ffbd2e;
+}
+.dot.green {
+  background: #27c93f;
+}
+
+.card-title {
+  margin-left: auto;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-family: var(--font-code);
+}
+
+.code-block {
+  font-family: var(--font-code);
+  font-size: 0.85rem;
+  line-height: 1.6;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+  flex-grow: 1;
+}
+
+.k {
+  color: #f472b6;
+}
+.v {
+  color: #60a5fa;
+}
+.p {
+  color: #38bdf8;
+}
+.s {
+  color: #34d399;
+}
+.b {
+  color: #fbbf24;
 }
 
 .hero-bottom-grid {
@@ -376,7 +450,7 @@ img {
 }
 
 .hero-title {
-  font-size: 2.5rem;
+  font-size: 2.4rem;
   line-height: 1.2;
   font-weight: 800;
   margin-bottom: 1rem;
@@ -460,81 +534,13 @@ img {
 
 .hero-symbol {
   font-family: var(--font-code);
-  font-size: 6rem;
+  font-size: 5.5rem;
   font-weight: 900;
   line-height: 1;
   background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-}
-
-/* CODE VISUAL CARD */
-.developer-card,
-.code-card-glass {
-  background: var(--bg-card);
-  backdrop-filter: blur(16px);
-  border: 1px solid var(--border-color);
-  border-radius: 16px;
-  padding: 1.2rem;
-  box-shadow: var(--shadow-card);
-  overflow: hidden;
-}
-
-.card-header {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  margin-bottom: 0.8rem;
-  padding-bottom: 0.6rem;
-  border-bottom: 1px solid var(--border-color);
-}
-
-.dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-}
-.dot.red {
-  background: #ff5f56;
-}
-.dot.yellow {
-  background: #ffbd2e;
-}
-.dot.green {
-  background: #27c93f;
-}
-
-.card-title {
-  margin-left: auto;
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  font-family: var(--font-code);
-}
-
-.code-block {
-  font-family: var(--font-code);
-  font-size: 0.85rem;
-  line-height: 1.5;
-  overflow-x: auto;
-  white-space: pre-wrap;
-  word-break: break-word;
-}
-
-.k {
-  color: #f472b6;
-}
-.v {
-  color: #60a5fa;
-}
-.p {
-  color: #38bdf8;
-}
-.s {
-  color: #34d399;
-}
-.b {
-  color: #fbbf24;
 }
 
 .scroll-down-btn {
@@ -899,15 +905,18 @@ img {
 }
 
 /* =========================================================
-   IDEAL MOBIL RESPONSIVE MEDIA QUERIES
+   MOBIL VA PLANSHETLAR UCHUN MAXSUS MOSLASHUV
    ========================================================= */
 
 @media (max-width: 992px) {
-  .hero-top-grid,
-  .about-grid,
-  .contact-grid {
-    grid-template-columns: 1fr;
-    gap: 1.8rem;
+  .hero-top-grid {
+    grid-template-columns: 1fr; /* Telefonda bloklar bir-birining ostida tushadi */
+    gap: 1.5rem;
+  }
+
+  .hero-robot-wrapper,
+  .hero-robot-card {
+    min-height: 220px; /* Telefonda ortiqcha joy egallamaydi */
   }
 
   .hero-bottom-grid {
@@ -917,6 +926,12 @@ img {
 
   .hero-symbol-wrapper {
     display: none;
+  }
+
+  .about-grid,
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 1.8rem;
   }
 
   .stats-grid {
@@ -955,11 +970,11 @@ img {
   }
 
   .hero-title {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
 
   .greeting {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
   }
 
   .hero-actions,
@@ -973,7 +988,7 @@ img {
   }
 
   .robot-img {
-    max-width: 160px;
+    max-width: 150px;
   }
 
   .code-block {
@@ -991,13 +1006,13 @@ img {
   }
 
   .section-title {
-    font-size: 1.8rem;
+    font-size: 1.75rem;
   }
 }
 
 @media (max-width: 480px) {
   .hero-title {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
   }
 
   .hero-badge {

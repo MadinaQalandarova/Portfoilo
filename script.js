@@ -223,7 +223,6 @@ document.addEventListener("DOMContentLoaded", () => {
         : "auto";
     });
 
-    // Link bosilganda menyuni yopish
     navLinks.forEach((link) => {
       link.addEventListener("click", () => {
         hamburgerBtn.classList.remove("active");
@@ -258,7 +257,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // 4. TELEGRAM BOT ORQALI XABAR YUBORISH (CONTACT FORM)
+  // 4. TELEGRAM BOT ORQALI XABAR YUBORISH
   const contactForm = document.getElementById("contactForm");
   const formMessage = document.getElementById("formMessage");
   const submitBtn = document.getElementById("submitBtn");
