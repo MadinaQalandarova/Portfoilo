@@ -15,8 +15,8 @@ const i18n = {
     hero_name: "Qalandarova Madina",
     hero_desc:
       "IT sohasidagi yosh mutaxassis — zamonaviy interfeys yarataman va raqamli xavfsizlikni ta'minlayman.",
-    btn_contact: "Bog'lanish",
-    btn_certs: "Sertifikatlar",
+    btn_contact: "Bog'lanish ✉",
+    btn_certs: "Sertifikatlar 📜",
     hero_scroll: "Pastga suring",
     stat_cert: "Sertifikatlar",
     stat_dir: "Asosiy Yo'nalishlar",
@@ -83,8 +83,8 @@ const i18n = {
     hero_name: "Каландарова Мадина",
     hero_desc:
       "Молодой специалист в IT — создаю современные интерфейсы и обеспечиваю цифровую безопасность.",
-    btn_contact: "Связаться",
-    btn_certs: "Сертификаты",
+    btn_contact: "Связаться ✉",
+    btn_certs: "Сертификаты 📜",
     hero_scroll: "Прокрутите вниз",
     stat_cert: "Сертификатов",
     stat_dir: "Осн. Направления",
@@ -150,8 +150,8 @@ const i18n = {
     hero_name: "Madina Qalandarova",
     hero_desc:
       "Young IT specialist — creating modern interfaces and ensuring digital security.",
-    btn_contact: "Contact Me",
-    btn_certs: "Certificates",
+    btn_contact: "Contact Me ✉",
+    btn_certs: "Certificates 📜",
     hero_scroll: "Scroll Down",
     stat_cert: "Certificates",
     stat_dir: "Main Directions",
@@ -263,8 +263,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const formMessage = document.getElementById("formMessage");
   const submitBtn = document.getElementById("submitBtn");
 
-  const TELEGRAM_BOT_TOKEN = "7820794537:AAHOfM_5aJytJ9a9lH10-UjXq3bN82b7_98"; // O'zingizning bot tokeningiz
-  const CHAT_ID = "5806657962"; // O'zingizning chat IDingiz
+  const TELEGRAM_BOT_TOKEN = "7820794537:AAHOfM_5aJytJ9a9lH10-UjXq3bN82b7_98";
+  const CHAT_ID = "5806657962";
 
   if (contactForm) {
     contactForm.addEventListener("submit", async (e) => {
