@@ -209,7 +209,7 @@ const i18n = {
 };
 
 document.addEventListener("DOMContentLoaded", () => {
-  // 1. MOBIL NAVIGATSIYA (HAMBURGER MENU)
+  // 1. HAMBURGER MENU
   const hamburgerBtn = document.getElementById("hamburgerBtn");
   const navMenu = document.getElementById("navMenu");
   const navLinks = document.querySelectorAll(".nav-link");
@@ -232,7 +232,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // 2. THEME TOGGLE (DARK / LIGHT)
+  // 2. THEME TOGGLE
   const themeBtn = document.getElementById("themeBtn");
   const currentTheme = localStorage.getItem("theme") || "dark";
 
@@ -248,7 +248,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // 3. TIL O'ZGARTIRISH (LANG SELECTOR)
+  // 3. TIL O'ZGARTIRISH
   const langMenu = document.getElementById("langMenu");
   if (langMenu) {
     langMenu.addEventListener("change", (e) => {
@@ -257,7 +257,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // 4. TELEGRAM BOT ORQALI XABAR YUBORISH
+  // 4. TELEGRAM BOT YUBORISH
   const contactForm = document.getElementById("contactForm");
   const formMessage = document.getElementById("formMessage");
   const submitBtn = document.getElementById("submitBtn");
@@ -311,7 +311,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (formMessage) {
           formMessage.className = "form-message error";
           formMessage.textContent =
-            "Xabar yuborib bo'lmadi. Bot faolligini va internet aloqasini tekshiring!";
+            "Xabar yuborib bo'lmadi. Telegramda botga /start bosilganini tekshiring!";
         }
       } finally {
         submitBtn.disabled = false;
