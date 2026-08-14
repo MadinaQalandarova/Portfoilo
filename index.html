@@ -4,10 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Madina Qalandarova — Portfolio</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Fira+Code:wght@400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap"
       rel="stylesheet"
     />
     <link
@@ -21,45 +22,60 @@
 
     <header class="navbar">
       <div class="container nav-container">
-        <a href="#" class="nav-logo"
-          ><span class="logo-bracket">&lt;</span>MQ<span class="logo-dot"
-            >.</span
-          ><span class="logo-bracket">&sol;&gt;</span></a
-        >
+        <a href="#" class="nav-logo">
+          <span class="logo-bracket"></span>MQ<span class="logo-dot">.</span
+          ><span class="logo-bracket"></span>
+        </a>
 
-        <nav class="nav-menu" id="navMenu">
-          <a href="#about" class="nav-link" data-i18n="nav_about">Ma'lumot</a>
-          <a href="#skills" class="nav-link" data-i18n="nav_skills"
-            >Ko'nikmalar</a
-          >
-          <a href="#certificates" class="nav-link" data-i18n="nav_certs"
-            >Sertifikatlar</a
-          >
-          <a href="#education" class="nav-link" data-i18n="nav_education"
-            >Ta'lim</a
-          >
-          <a href="#contact" class="nav-link" data-i18n="nav_contact">Aloqa</a>
-        </nav>
+        <ul class="nav-menu" id="navMenu">
+          <li>
+            <a href="#about" class="nav-link" data-i18n="nav_about">Ma'lumot</a>
+          </li>
+          <li>
+            <a href="#skills" class="nav-link" data-i18n="nav_skills"
+              >Ko'nikmalar</a
+            >
+          </li>
+          <li>
+            <a href="#certs" class="nav-link" data-i18n="nav_certs"
+              >Sertifikatlar</a
+            >
+          </li>
+          <li>
+            <a href="#education" class="nav-link" data-i18n="nav_education"
+              >Ta'lim</a
+            >
+          </li>
+          <li>
+            <a href="#contact" class="nav-link" data-i18n="nav_contact"
+              >Aloqa</a
+            >
+          </li>
+        </ul>
 
         <div class="nav-controls">
           <div class="lang-select-wrapper">
-            <i class="fa-solid fa-globe"></i>
+            <i class="fa-solid fa-globe lang-icon"></i>
             <select id="langMenu" class="lang-select">
-              <option value="uz" selected>UZ</option>
+              <option value="uz">UZ</option>
               <option value="ru">RU</option>
               <option value="en">EN</option>
             </select>
           </div>
+
           <button
-            class="theme-toggle-btn"
             id="themeBtn"
+            class="theme-toggle-btn"
             aria-label="Theme toggle"
           >
             <i class="fa-solid fa-sun icon-sun"></i>
             <i class="fa-solid fa-moon icon-moon"></i>
           </button>
+
           <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
-            <span></span><span></span><span></span>
+            <span></span>
+            <span></span>
+            <span></span>
           </button>
         </div>
       </div>
@@ -69,99 +85,116 @@
       <section class="hero-section">
         <div class="container">
           <div class="hero-top-grid">
-            <div class="hero-robot-card">
+            <div class="hero-robot-wrapper">
               <div class="robot-glow"></div>
-              <img
-                src="https://cdni.iconscout.com/illustration/premium/thumb/web-development-3454628-2888518.png"
-                alt="Robot Illustration"
-                class="robot-img"
-              />
+              <img src="robot.png" class="robot-img" />
               <div class="robot-shadow"></div>
             </div>
 
-            <div class="code-card-glass">
-              <div class="card-header">
-                <span class="dot red"></span><span class="dot yellow"></span
-                ><span class="dot green"></span>
-                <span class="card-title">developer.json</span>
+            <div class="hero-visual">
+              <div class="code-card-glass">
+                <div class="card-header">
+                  <span class="dot red"></span>
+                  <span class="dot yellow"></span>
+                  <span class="dot green"></span>
+                  <span class="card-title">developer.json</span>
+                </div>
+                <pre
+                  class="code-block"
+                ><code><span class="k">const</span> <span class="v">developer</span> = {
+  <span class="p">name</span>: <span class="s">"Madina Qalandarova"</span>,
+  <span class="p">role</span>: <span class="s">"Frontend & CyberSec"</span>,
+  <span class="p">skills</span>: [<span class="s">"JS"</span>, <span class="s">"HTML/CSS"</span>, <span class="s">"Security"</span>],
+  <span class="p">location</span>: <span class="s">"Uzbekistan"</span>,
+  <span class="p">passionate</span>: <span class="b">true</span>
+};</code></pre>
               </div>
-              <pre class="code-block"><code>{
-  <span class="k">"name"</span>: <span class="s">"Qalandarova Madina"</span>,
-  <span class="k">"role"</span>: <span class="s">"Frontend & Cybersecurity"</span>,
-  <span class="k">"status"</span>: <span class="s">"Open to Opportunities"</span>,
-  <span class="k">"skills"</span>: [<span class="s">"HTML"</span>, <span class="s">"CSS"</span>, <span class="s">"JS"</span>, <span class="s">"React"</span>, <span class="s">"Security"</span>]
-}</code></pre>
             </div>
           </div>
 
           <div class="hero-bottom-grid">
-            <div class="hero-text-content">
+            <div class="hero-content">
               <div class="hero-badge">
                 <span class="pulse-dot"></span>
                 <span data-i18n="hero_tag">Frontend Dev & Cybersecurity</span>
               </div>
+
               <h1 class="hero-title">
                 <span class="greeting" data-i18n="hero_hello">Salom, men</span>
                 <span class="gradient-text" data-i18n="hero_name"
                   >Qalandarova Madina</span
                 >
               </h1>
+
               <p class="hero-desc" data-i18n="hero_desc">
                 IT sohasidagi yosh mutaxassis — zamonaviy interfeys yarataman va
                 raqamli xavfsizlikni ta'minlayman.
               </p>
-              <div class="hero-action-btns">
-                <a
-                  href="#contact"
-                  class="btn btn-primary"
-                  data-i18n="btn_contact"
-                  >Bog'lanish ✉</a
+
+              <div class="hero-pills">
+                <span class="pill"
+                  ><i class="fa-brands fa-html5"></i> HTML / CSS</span
                 >
-                <a
-                  href="#certificates"
-                  class="btn btn-secondary"
-                  data-i18n="btn_certs"
-                  >Sertifikatlar 📜</a
+                <span class="pill"
+                  ><i class="fa-brands fa-js"></i> JavaScript</span
+                >
+                <span class="pill"
+                  ><i class="fa-solid fa-shield-halved"></i> Cybersecurity</span
                 >
               </div>
+
+              <div class="hero-actions">
+                <a href="#contact" class="btn btn-primary">
+                  <i class="fa-regular fa-paper-plane"></i>
+                  <span data-i18n="btn_contact">Bog'lanish</span>
+                </a>
+                <a href="#certs" class="btn btn-secondary">
+                  <i class="fa-solid fa-award"></i>
+                  <span data-i18n="btn_certs">Sertifikatlar</span>
+                </a>
+              </div>
             </div>
+
             <div class="hero-symbol-wrapper">
-              <span class="hero-symbol">&lt;&sol;&gt;</span>
+              <span class="hero-symbol">&gt_</span>
             </div>
           </div>
         </div>
+
+        <a href="#stats" class="scroll-down-btn" aria-label="Scroll down">
+          <span data-i18n="hero_scroll">Pastga suring</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </a>
       </section>
 
-      <section class="stats-section">
+      <section class="stats-section" id="stats">
         <div class="container">
           <div class="stats-grid">
             <div class="stat-card">
-              <div class="stat-icon"><i class="fa-solid fa-award"></i></div>
-              <div>
-                <div class="stat-num">5+</div>
-                <div class="stat-label" data-i18n="stat_cert">
-                  Sertifikatlar
-                </div>
+              <div class="stat-icon">
+                <i class="fa-solid fa-certificate"></i>
+              </div>
+              <div class="stat-info">
+                <h3 class="stat-num">6</h3>
+                <p class="stat-label" data-i18n="stat_cert">Sertifikatlar</p>
               </div>
             </div>
             <div class="stat-card">
-              <div class="stat-icon"><i class="fa-solid fa-code"></i></div>
-              <div>
-                <div class="stat-num">2</div>
-                <div class="stat-label" data-i18n="stat_dir">
+              <div class="stat-icon"><i class="fa-solid fa-compass"></i></div>
+              <div class="stat-info">
+                <h3 class="stat-num">2</h3>
+                <p class="stat-label" data-i18n="stat_dir">
                   Asosiy Yo'nalishlar
-                </div>
+                </p>
               </div>
             </div>
             <div class="stat-card">
               <div class="stat-icon">
                 <i class="fa-solid fa-laptop-code"></i>
               </div>
-              <div>
-                <div class="stat-num">10+</div>
-                <div class="stat-label" data-i18n="stat_proj">
-                  Katta Loyihalar
-                </div>
+              <div class="stat-info">
+                <h3 class="stat-num">3</h3>
+                <p class="stat-label" data-i18n="stat_proj">Katta Loyihalar</p>
               </div>
             </div>
           </div>
@@ -171,150 +204,289 @@
       <section id="about" class="section">
         <div class="container">
           <div class="section-header">
-            <span class="section-tag" data-i18n="sec_intro">Tanishuv</span>
+            <span class="section-badge" data-i18n="sec_intro">Tanishuv</span>
             <h2 class="section-title" data-i18n="about_title">
               Men haqimda ma'lumot
             </h2>
           </div>
+
           <div class="about-grid">
-            <div class="about-card-glow">
-              <div class="profile-avatar-container">
-                <div class="profile-avatar">MQ</div>
-                <div class="profile-info">
-                  <h3 data-i18n="profile_name">Qalandarova Madina</h3>
-                  <p data-i18n="profile_role">Frontend Dev + Cybersecurity</p>
-                </div>
-              </div>
-              <div class="about-bullets">
-                <div class="bullet-item">
-                  <i class="fa-solid fa-check bullet-icon"></i>
-                  <p data-i18n="about_desc">
-                    IT sohasida Frontend Development va Kiberxavfsizlik
-                    o'rganuvchisi.
-                  </p>
-                </div>
-                <div class="bullet-item">
-                  <i class="fa-solid fa-check bullet-icon"></i>
-                  <p data-i18n="about_desc2">
-                    IT Park "Al-Xorazimiy Vorislari" loyihasida 2 yil tajriba.
-                  </p>
-                </div>
-              </div>
+            <div class="about-text-content">
+              <p class="about-p" data-i18n="about_desc">
+                Salom! Men Qalandarova Madina — IT sohasida Frontend Development
+                va Kiberxavfsizlik yo'nalishlarida o'qiyotgan yosh
+                mutaxassisman.
+              </p>
+              <p class="about-p" data-i18n="about_desc2">
+                Men 2 yil davomida Yangiariq tumanidagi IT Park binosida
+                "Al-Xorazimiy Vorislari" loyihasida Frontend va Backend
+                dasturlash bo'yicha amaliy bilimlarni egalladim.
+              </p>
+              <p class="about-p" data-i18n="about_desc3">
+                Coursera platformasida 2–3 ta sertifikat olganman, ular Frontend
+                va Backend yo'nalishlarini qamrab oladi.
+              </p>
+              <p class="about-p" data-i18n="about_desc4">
+                Mening maqsadim — chiroyli, xavfsiz va samarali veb-ilovalar
+                yaratish.
+              </p>
+            </div>
+
+            <div class="about-profile-card">
+              <div class="profile-avatar">MQ</div>
+              <h3 class="profile-name" data-i18n="profile_name">
+                Qalandarova Madina
+              </h3>
+              <p class="profile-role" data-i18n="profile_role">
+                Frontend Dev + Cybersecurity
+              </p>
+
+              <ul class="profile-list">
+                <li>
+                  <i class="fa-solid fa-graduation-cap"></i>
+                  <span data-i18n="profile_education">IT sohasida talaba</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-location-dot"></i>
+                  <span data-i18n="profile_location">O'zbekiston</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-code"></i>
+                  <span data-i18n="profile_role2">Frontend Developer</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-user-shield"></i>
+                  <span data-i18n="profile_role3"
+                    >Kiberxavfsizlik mutaxassisi</span
+                  >
+                </li>
+                <li>
+                  <i class="fa-solid fa-award"></i>
+                  <span data-i18n="profile_certs"
+                    >Coursera · 2-3 sertifikat</span
+                  >
+                </li>
+              </ul>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="skills" class="section">
+      <section id="certs" class="section">
         <div class="container">
           <div class="section-header">
-            <span class="section-tag">Skills</span>
-            <h2 class="section-title" data-i18n="nav_skills">Ko'nikmalar</h2>
-          </div>
-          <div class="skills-grid">
-            <div class="skill-card">
-              <div class="skill-card-header">
-                <div class="skill-card-icon">
-                  <i class="fa-brands fa-html5"></i>
-                </div>
-                <h3>Frontend</h3>
-              </div>
-              <div class="skill-tags">
-                <span class="skill-tag">HTML5</span>
-                <span class="skill-tag">CSS3</span>
-                <span class="skill-tag">JavaScript</span>
-                <span class="skill-tag">Bootstrap</span>
-              </div>
-            </div>
-            <div class="skill-card">
-              <div class="skill-card-header">
-                <div class="skill-card-icon">
-                  <i class="fa-solid fa-shield-halved"></i>
-                </div>
-                <h3>Cybersecurity</h3>
-              </div>
-              <div class="skill-tags">
-                <span class="skill-tag">Network Security</span>
-                <span class="skill-tag">Web Security</span>
-                <span class="skill-tag">Linux Basics</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="certificates" class="section">
-        <div class="container">
-          <div class="section-header">
-            <span class="section-tag" data-i18n="certs_label">Yutuqlar</span>
+            <span class="section-badge" data-i18n="certs_label">Yutuqlar</span>
             <h2 class="section-title" data-i18n="certs_title">
               Sertifikatlarim & Yutuqlarim
             </h2>
           </div>
+
           <div class="certs-grid">
-            <div class="cert-card">
-              <div>
-                <span class="cert-badge">COURSERA</span>
-                <h3 class="cert-title">Build AI Apps with ChatGPT</h3>
+            <a
+              href="https://coursera.org/share/568db34194c9e59d3f9b656fa72e5603"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="cert-card"
+            >
+              <div class="cert-badge-icon purple">
+                <i class="fa-solid fa-robot"></i>
               </div>
-              <span class="timeline-type">Sertifikat</span>
-            </div>
+              <div class="cert-details">
+                <h3 class="cert-title" data-i18n="cert_title1">
+                  Build AI Apps with ChatGPT
+                </h3>
+                <span class="cert-issuer" data-i18n="cert_issuer"
+                  >COURSERA</span
+                >
+              </div>
+              <div class="cert-status-badge">
+                <i class="fa-solid fa-check"></i>
+                <span data-i18n="cert_status">Olindi</span>
+              </div>
+            </a>
+
+            <a
+              href="https://coursera.org/share/67780344e5be68663fb6af27494c2b43"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="cert-card"
+            >
+              <div class="cert-badge-icon cyan">
+                <i class="fa-solid fa-cloud"></i>
+              </div>
+              <div class="cert-details">
+                <h3 class="cert-title">Intro to Generative AI</h3>
+                <span class="cert-issuer" data-i18n="cert_issuer"
+                  >COURSERA</span
+                >
+              </div>
+              <div class="cert-status-badge">
+                <i class="fa-solid fa-check"></i>
+                <span data-i18n="cert_status">Olindi</span>
+              </div>
+            </a>
           </div>
         </div>
       </section>
 
-      <section id="education" class="section">
+      <section id="education" class="section bg-alt">
         <div class="container">
-          <div class="section-header">
-            <span class="section-tag" data-i18n="sec_edu"
+          <div class="section-header text-center">
+            <span class="section-badge" data-i18n="sec_edu"
               >Yo'nalish & Bilim</span
             >
             <h2 class="section-title" data-i18n="edu_title">
               Ta'lim va O'rganish Yo'lim
             </h2>
+            <p class="section-subtitle" data-i18n="edu_desc">
+              Dasturlash va kiberxavfsizlik sohasidagi nazariy hamda amaliy
+              bilimlarim
+            </p>
           </div>
-          <div class="timeline-container">
-            <div class="timeline-card">
-              <span class="timeline-type" data-i18n="edu_type1">Texnikum</span>
-              <h3 class="timeline-title" data-i18n="edu_title1">
-                Raqamli Texnologiyalari Texnikumi
-              </h3>
-              <p class="timeline-place" data-i18n="edu_place1">
-                Kompyuter Ilmlari va Axborot Xavfsizligi
-              </p>
-              <p data-i18n="edu_desc1">
-                Urganch shahridagi Raqamli Texnologiyalari Texnikumida ta'lim
-                olaman.
-              </p>
+
+          <div class="edu-timeline">
+            <div class="edu-card">
+              <div class="edu-icon-box">
+                <i class="fa-solid fa-graduation-cap"></i>
+              </div>
+              <div class="edu-content">
+                <div class="edu-header">
+                  <span class="edu-period"
+                    ><i class="fa-regular fa-calendar"></i> Hozirda /
+                    O'quvchi</span
+                  >
+                  <span class="edu-type-badge" data-i18n="edu_type1"
+                    >Texnikum</span
+                  >
+                </div>
+                <h3 class="edu-title" data-i18n="edu_title1">
+                  Raqamli Texnologiyalari Texnikumi
+                </h3>
+                <h4 class="edu-place" data-i18n="edu_place1">
+                  Kompyuter Ilmlari va Axborot Xavfsizligi
+                </h4>
+                <p class="edu-desc" data-i18n="edu_desc1">
+                  Men hozir Urganch shahridagi Raqamli Texnologiyalari
+                  Texnikumida Kompyuter bilmlari, dasturlash asoslari va axborot
+                  xavfsizligi bo'yicha fundamental bilimlarni egallamoqdaman.
+                </p>
+              </div>
+            </div>
+
+            <div class="edu-card">
+              <div class="edu-icon-box cyan">
+                <i class="fa-solid fa-laptop-code"></i>
+              </div>
+              <div class="edu-content">
+                <div class="edu-header">
+                  <span class="edu-period"
+                    ><i class="fa-regular fa-calendar"></i> Mustaqil
+                    O'rganish</span
+                  >
+                  <span class="edu-type-badge cyan" data-i18n="edu_type2"
+                    >Online & Bootcamps</span
+                  >
+                </div>
+                <h3 class="edu-title" data-i18n="edu_title2">
+                  Frontend Development & Kiberxavfsizlik
+                </h3>
+                <h4 class="edu-place" data-i18n="edu_place2">
+                  Coursera, YouTube & Amaliy Loyihalar
+                </h4>
+                <p class="edu-desc" data-i18n="edu_desc2">
+                  HTML, CSS, JavaScript hamda Veb xavfsizlik (Web Security)
+                  boyicha 4–5 ta xalqaro sertifikatlar va amaliy loyihalar
+                  ustida ishlaganman.
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="contact" class="section">
+      <section id="contact" class="section bg-alt">
         <div class="container">
           <div class="section-header">
-            <span class="section-tag" data-i18n="contact_label">Aloqa</span>
+            <span class="section-badge" data-i18n="contact_label">Aloqa</span>
             <h2 class="section-title" data-i18n="contact_title">
               Men bilan bog'lanish:
             </h2>
           </div>
+
           <div class="contact-grid">
-            <div class="contact-card">
-              <p data-i18n="contact_desc">
-                Loyiha yoki takliflar bo'lsa bemalol yozishingiz mumkin:
+            <div class="contact-info">
+              <p class="contact-desc" data-i18n="contact_desc">
+                Loyiha, hamkorlik yoki savol bo'lsa — bemalol yozing yoki
+                ijtimoiy tarmoqlarim orqali bog'laning:
               </p>
-              <div class="contact-links">
-                <a href="mailto:madina@gmail.com" class="contact-link-item"
-                  ><i class="fa-solid fa-envelope"></i
-                  ><span>madina@gmail.com</span></a
+
+              <div class="contact-links-list">
+                <a href="mailto:qalandrovaam10@gmail.com" class="contact-item">
+                  <div class="contact-icon-box">
+                    <i class="fa-regular fa-envelope"></i>
+                  </div>
+                  <div class="contact-item-text">
+                    <span class="item-label" data-i18n="contact_email"
+                      >Email</span
+                    >
+                    <span class="item-val">qalandrovaam10@gmail.com</span>
+                  </div>
+                </a>
+
+                <a
+                  href="https://t.me/qalandarovaaa_m"
+                  target="_blank"
+                  rel="noopener"
+                  class="contact-item"
                 >
-                <a href="https://t.me/username" class="contact-link-item"
-                  ><i class="fa-brands fa-telegram"></i><span>Telegram</span></a
+                  <div class="contact-icon-box tg">
+                    <i class="fa-brands fa-telegram"></i>
+                  </div>
+                  <div class="contact-item-text">
+                    <span class="item-label" data-i18n="contact_telegram"
+                      >Telegram</span
+                    >
+                    <span class="item-val">@qalandarovaaa_m</span>
+                  </div>
+                </a>
+
+                <a
+                  href="https://www.instagram.com/_.qalandarovaaa?igsh=MTl2c2ZvZW1oNDBiNQ=="
+                  target="_blank"
+                  rel="noopener"
+                  class="contact-item"
                 >
+                  <div class="contact-icon-box insta">
+                    <i class="fa-brands fa-instagram"></i>
+                  </div>
+                  <div class="contact-item-text">
+                    <span class="item-label" data-i18n="contact_instagram"
+                      >Instagram</span
+                    >
+                    <span class="item-val">_.qalandarovaaa</span>
+                  </div>
+                </a>
+
+                <a
+                  href="https://github.com/MadinaQalandarova"
+                  target="_blank"
+                  rel="noopener"
+                  class="contact-item"
+                >
+                  <div class="contact-icon-box gh">
+                    <i class="fa-brands fa-github"></i>
+                  </div>
+                  <div class="contact-item-text">
+                    <span class="item-label" data-i18n="contact_github"
+                      >GitHub</span
+                    >
+                    <span class="item-val">MadinaQalandarova</span>
+                  </div>
+                </a>
               </div>
             </div>
-            <div class="contact-card">
+
+            <div class="contact-form-card">
               <form id="contactForm">
                 <div class="form-group">
                   <input
