@@ -1,9 +1,7 @@
 const https = require("https");
 
-const TELEGRAM_BOT_TOKEN =
-  process.env.TELEGRAM_BOT_TOKEN ||
-  "8461587456:AAFwVMvF9wbENcVnznYa8nKdZmAYmqNaX-M";
-const CHAT_ID = process.env.TELEGRAM_CHAT_ID || "8562164104";
+const TELEGRAM_BOT_TOKEN = "8461587456:AAFwVMvF9wbENcVnznYa8nKdZmAYmqNaX-M";
+const CHAT_ID = "8562164104";
 
 function escapeHtml(value) {
   return String(value)
