@@ -15,7 +15,16 @@ module.exports = async function handler(req, res) {
     return;
   }
 
-  const { name, email, message } = req.body || {};
+  let body = req.body;
+  if (typeof body === "string") {
+    try {
+      body = JSON.parse(body);
+    } catch (err) {
+      body = {};
+    }
+  }
+
+  const { name, email, message } = body || {};
 
   if (!name || !email || !message) {
     res
