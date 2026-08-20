@@ -1,5 +1,8 @@
+const https = require("https");
+
 const TELEGRAM_BOT_TOKEN =
-  process.env.TELEGRAM_BOT_TOKEN || "8461587456:AAFwVMvF9wbENcVnznYa8nKdZmAYmqNaX-M";
+  process.env.TELEGRAM_BOT_TOKEN ||
+  "8461587456:AAFwVMvF9wbENcVnznYa8nKdZmAYmqNaX-M";
 const CHAT_ID = process.env.TELEGRAM_CHAT_ID || "8562164104";
 
 function escapeHtml(value) {
@@ -7,6 +10,52 @@ function escapeHtml(value) {
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;");
+}
+
+function callTelegram(text) {
+  return new Promise((resolve, reject) => {
+    const payload = JSON.stringify({
+      chat_id: CHAT_ID,
+      text,
+      parse_mode: "HTML",
+    });
+
+    const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
+
+    const req = https.request(
+      url,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Content-Length": Buffer.byteLength(payload),
+          "User-Agent": "portfolio-contact-form/1.0",
+        },
+      },
+      (res) => {
+        let body = "";
+        res.setEncoding("utf8");
+        res.on("data", (chunk) => {
+          body += chunk;
+        });
+        res.on("end", () => {
+          try {
+            resolve({ status: res.statusCode, data: JSON.parse(body) });
+          } catch (err) {
+            resolve({ status: res.statusCode, data: { ok: false } });
+          }
+        });
+      },
+    );
+
+    req.setTimeout(8000, () => {
+      req.destroy(new Error("Telegram API timeout"));
+    });
+
+    req.on("error", reject);
+    req.write(payload);
+    req.end();
+  });
 }
 
 module.exports = async function handler(req, res) {
@@ -48,27 +97,16 @@ module.exports = async function handler(req, res) {
     `💬 <b>Xabar:</b> ${escapeHtml(message)}`;
 
   try {
-    const response = await fetch(
-      `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`,
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          chat_id: CHAT_ID,
-          text,
-          parse_mode: "HTML",
-        }),
-      },
-    );
+    const result = await callTelegram(text);
 
-    const data = await response.json();
-
-    if (response.ok && data.ok) {
+    if (result.data && result.data.ok) {
       res.status(200).json({ ok: true });
     } else {
-      res
-        .status(response.status || 500)
-        .json({ ok: false, error: data.description || "Telegram API xatosi" });
+      res.status(result.status || 500).json({
+        ok: false,
+        error:
+          (result.data && result.data.description) || "Telegram API xatosi",
+      });
     }
   } catch (err) {
     res.status(500).json({ ok: false, error: "Telegram API xatosi" });
