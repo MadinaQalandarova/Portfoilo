@@ -41,6 +41,7 @@ const i18n = {
     certs_label: "Yutuqlar",
     certs_title: "Sertifikatlarim & Yutuqlarim",
     cert_title1: "Build AI Apps with ChatGPT",
+    cert_title2: "Intro to Generative AI",
     cert_issuer: "COURSERA",
     cert_status: "Olindi",
     sec_edu: "Yo'nalish & Bilim",
@@ -109,6 +110,7 @@ const i18n = {
     certs_label: "Достижения",
     certs_title: "Мои Сертификаты и Достижения",
     cert_title1: "Build AI Apps with ChatGPT",
+    cert_title2: "Введение в генеративный ИИ",
     cert_issuer: "COURSERA",
     cert_status: "Получен",
     sec_edu: "Направление и Знания",
@@ -176,6 +178,7 @@ const i18n = {
     certs_label: "Achievements",
     certs_title: "My Certificates & Achievements",
     cert_title1: "Build AI Apps with ChatGPT",
+    cert_title2: "Intro to Generative AI",
     cert_issuer: "COURSERA",
     cert_status: "Completed",
     sec_edu: "Path & Knowledge",
@@ -218,6 +221,7 @@ function setLanguage(lang) {
   if (langMenu) {
     langMenu.value = currentLang;
   }
+  document.documentElement.lang = currentLang;
 
   // Text kontentlarni yangilash
   document.querySelectorAll("[data-i18n]").forEach((el) => {
@@ -247,7 +251,8 @@ const themeBtn = document.getElementById("themeBtn");
 const body = document.body;
 
 function initTheme() {
-  const savedTheme = localStorage.getItem("theme") || "dark";
+  const saved = localStorage.getItem("theme");
+  const savedTheme = saved === "light" ? "light" : "dark";
   body.setAttribute("data-theme", savedTheme);
   body.className = savedTheme + "-theme";
 }
@@ -269,7 +274,8 @@ const navMenu = document.getElementById("navMenu");
 
 if (hamburgerBtn && navMenu) {
   hamburgerBtn.addEventListener("click", () => {
-    navMenu.classList.toggle("active");
+    const isActive = navMenu.classList.toggle("active");
+    hamburgerBtn.setAttribute("aria-expanded", String(isActive));
   });
 
   document.querySelectorAll(".nav-link").forEach((link) => {
@@ -304,28 +310,21 @@ if (contactForm) {
       return;
     }
 
+    if (formMessage) {
+      formMessage.className = "form-message";
+      formMessage.textContent = "";
+    }
+
     submitBtn.disabled = true;
     const originalBtnText = submitBtn.innerHTML;
     submitBtn.innerHTML = "Yuborilmoqda... ⏳";
 
-    const TELEGRAM_BOT_TOKEN = "8461587456:AAFwVMvF9wbENcVnznYa8nKdZmAYmqNaX-M";
-    const CHAT_ID = "8562164104";
-
-    const text = `📬 *Yangi Portfolio Xabari!*\n\n👤 *Ism:* ${name}\n📧 *Email:* ${email}\n💬 *Xabar:* ${message}`;
-
     try {
-      const response = await fetch(
-        `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`,
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            chat_id: CHAT_ID,
-            text: text,
-            parse_mode: "Markdown",
-          }),
-        },
-      );
+      const response = await fetch("/api/sendMessage", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, message }),
+      });
 
       const data = await response.json();
 
@@ -336,14 +335,14 @@ if (contactForm) {
         }
         contactForm.reset();
       } else {
-        throw new Error(data.description || "Telegram API xatosi");
+        throw new Error(data.error || "Xatolik yuz berdi");
       }
     } catch (err) {
       console.error("Xatolik yuz berdi:", err);
       if (formMessage) {
         formMessage.className = "form-message error";
         formMessage.textContent =
-          "Xabar yuborib bo'lmadi. Telegramda botga /start bosilganini tekshiring!";
+          "Xabar yuborib bo'lmadi. Iltimos, qayta urinib ko'ring yoki telegram orqali bog'laning!";
       }
     } finally {
       submitBtn.disabled = false;
@@ -352,9 +351,8 @@ if (contactForm) {
   });
 }
 
-// 6. DOM TO'LIQ YUKLANGANDA ISHGA TUSHISHI
-document.addEventListener("DOMContentLoaded", () => {
-  initTheme();
-  const savedLang = localStorage.getItem("selected_lang") || "uz";
-  setLanguage(savedLang);
-});
+// 6. TIL VA MAVZUNI DARHOL QO'LLASH (FOUC oldini olish uchun)
+// Script body oxirida yuklangani uchun DOM tayyor
+initTheme();
+const savedLang = localStorage.getItem("selected_lang") || "uz";
+setLanguage(savedLang);

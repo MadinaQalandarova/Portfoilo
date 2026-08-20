@@ -1,0 +1,67 @@
+const TELEGRAM_BOT_TOKEN =
+  process.env.TELEGRAM_BOT_TOKEN || "8461587456:AAFwVMvF9wbENcVnznYa8nKdZmAYmqNaX-M";
+const CHAT_ID = process.env.TELEGRAM_CHAT_ID || "8562164104";
+
+function escapeHtml(value) {
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+}
+
+module.exports = async function handler(req, res) {
+  if (req.method !== "POST") {
+    res.status(405).json({ ok: false, error: "Method not allowed" });
+    return;
+  }
+
+  const { name, email, message } = req.body || {};
+
+  if (!name || !email || !message) {
+    res
+      .status(400)
+      .json({ ok: false, error: "Barcha maydonlar to'ldirilishi shart" });
+    return;
+  }
+
+  if (!TELEGRAM_BOT_TOKEN || !CHAT_ID) {
+    res.status(500).json({
+      ok: false,
+      error: "Telegram konfiguratsiyasi topilmadi",
+    });
+    return;
+  }
+
+  const text =
+    "📬 <b>Yangi Portfolio Xabari!</b>\n\n" +
+    `👤 <b>Ism:</b> ${escapeHtml(name)}\n` +
+    `📧 <b>Email:</b> ${escapeHtml(email)}\n` +
+    `💬 <b>Xabar:</b> ${escapeHtml(message)}`;
+
+  try {
+    const response = await fetch(
+      `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          chat_id: CHAT_ID,
+          text,
+          parse_mode: "HTML",
+        }),
+      },
+    );
+
+    const data = await response.json();
+
+    if (response.ok && data.ok) {
+      res.status(200).json({ ok: true });
+    } else {
+      res
+        .status(response.status || 500)
+        .json({ ok: false, error: data.description || "Telegram API xatosi" });
+    }
+  } catch (err) {
+    res.status(500).json({ ok: false, error: "Telegram API xatosi" });
+  }
+};
