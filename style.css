@@ -31,7 +31,7 @@
   --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Light Theme Variables (To'g'rilangan kontrast) */
+/* Light Theme Variables */
 [data-theme="light"],
 .light-theme {
   --bg-primary: #f8fafc;
