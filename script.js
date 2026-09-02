@@ -1,6 +1,6 @@
 /* =================================
    MADINA QALANDAROVA PORTFOLIO — COMPLETE SCRIPT.JS
-   ========================================================= */
+   ================================= */
 
 // 1. TIL SOZLAMALARI (i18n Dictionaries)
 const i18n = {
