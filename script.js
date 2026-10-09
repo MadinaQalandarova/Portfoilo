@@ -1,8 +1,8 @@
-/* =========================================================
+/* =================================
    MADINA QALANDAROVA PORTFOLIO — COMPLETE SCRIPT.JS
-   ========================================================= */
+   ================================= */
 
-// 1. TIL SOZLAMALARI (i18n Dictionaries)
+// 1. TIL SOZLAMALARI (uz/ru/eng) (i18n Dictionaries)
 const i18n = {
   uz: {
     nav_about: "Ma'lumot",
